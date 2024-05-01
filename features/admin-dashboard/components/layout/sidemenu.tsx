@@ -21,7 +21,7 @@ export function SideMenu(): JSX.Element {
             variant="ghost"
             className={cn(
               "flex flex-row justify-start items-center gap-3 px-5 py-2.5 w-full h-min rounded-none transition",
-              isActive && "bg-primary"
+              isActive && "bg-primary hover:bg-primary/80"
             )}
             onClick={() => router.push(`/admin${item.path}`)}
           >
