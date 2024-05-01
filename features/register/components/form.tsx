@@ -67,6 +67,24 @@ export function RegisterForm(): JSX.Element {
               </FormItem>
             )}
           />
+
+          <FormField
+            control={methods.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input
+                    type="Masukkan password"
+                    placeholder="Masukkan password"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
 
         <Button type="submit" size="lg" className="rounded-none">

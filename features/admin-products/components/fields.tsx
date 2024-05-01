@@ -17,7 +17,7 @@ export function AdminProductFields(): JSX.Element {
     <div className="flex flex-col gap-4">
       <FormField
         control={methods.control}
-        name="image"
+        name="imageUrl"
         render={({ field }) => (
           <FormItem>
             <FormLabel>Gambar</FormLabel>
