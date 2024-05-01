@@ -14,7 +14,6 @@ export function AdminDashboardNewestProductsTable(): JSX.Element {
       image: "",
       createdAt: "12 Mei 2023",
       price: 1000000,
-      status: "",
     },
     {
       id: "2",
@@ -22,7 +21,6 @@ export function AdminDashboardNewestProductsTable(): JSX.Element {
       image: "",
       createdAt: "12 Mei 2023",
       price: 1000000,
-      status: "",
     },
     {
       id: "3",
@@ -30,7 +28,6 @@ export function AdminDashboardNewestProductsTable(): JSX.Element {
       image: "",
       createdAt: "12 Mei 2023",
       price: 1000000,
-      status: "",
     },
   ];
 
@@ -72,7 +69,7 @@ export function AdminDashboardNewestProductsTable(): JSX.Element {
   ];
 
   return (
-    <Card className="px-[30px] py-[22px] rounded-xl	bg-white">
+    <Card className="px-[30px] py-[22px] rounded-xl	bg-white border-0">
       <h3 className="text-base font-medium mb-5">Produk Terbaru</h3>
       <BaseTable<ProductEntity>
         data={data}

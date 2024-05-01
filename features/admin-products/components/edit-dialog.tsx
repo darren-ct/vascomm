@@ -4,13 +4,13 @@ import { BaseDialog } from "@/components/shared/base-dialog";
 import { Button } from "@/components/ui/button";
 import { DialogTitle } from "@/components/ui/dialog";
 import { Form } from "@/components/ui/form";
-import { AdminUserFields } from "./fields";
+import { AdminProductFields } from "./fields";
 import { useEditProductDialog } from "../hooks/use-edit-product-dialog";
 import { EditIcon } from "lucide-react";
-import { EditUserDto } from "@/services/user/types/dto";
+import { EditProductDto } from "@/services/product/types/dto";
 
 interface EditProductDialogProps {
-  defaultValues: EditUserDto;
+  defaultValues: EditProductDto;
 }
 
 export function EditProductDialog({
@@ -23,14 +23,14 @@ export function EditProductDialog({
       content={
         <>
           <DialogTitle className="text-center mb-10">
-            Ubah Data User
+            Ubah Data Produk
           </DialogTitle>
           <Form {...methods}>
             <form
               className="w-full flex flex-col gap-8"
               onSubmit={methods.handleSubmit(onSubmit)}
             >
-              <AdminUserFields />
+              <AdminProductFields />
               <Button type="submit" size="lg" className="rounded-none">
                 SIMPAN
               </Button>

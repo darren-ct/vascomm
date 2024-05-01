@@ -2,24 +2,24 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback } from "react";
 import {
-  EditUserDto,
-  EditUserSchema,
-  editUserSchema,
-} from "@/services/user/types/dto";
+  EditProductDto,
+  EditProductSchema,
+  editProductSchema,
+} from "@/services/product/types/dto";
 
 interface UseEditProductDialogProps {
-  defaultValues: EditUserDto;
+  defaultValues: EditProductDto;
 }
 
 export function useEditProductDialog({
   defaultValues,
 }: UseEditProductDialogProps) {
-  const methods = useForm<EditUserSchema>({
-    resolver: zodResolver(editUserSchema),
+  const methods = useForm<EditProductSchema>({
+    resolver: zodResolver(editProductSchema),
     defaultValues,
   });
 
-  const onSubmit = useCallback((data: EditUserSchema) => {
+  const onSubmit = useCallback((data: EditProductSchema) => {
     console.log({ data });
   }, []);
 

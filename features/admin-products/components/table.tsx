@@ -2,41 +2,38 @@
 
 import { BaseCell } from "@/components/shared/base-cell";
 import { BaseTable } from "@/components/shared/base-table";
-import { Badge } from "@/components/ui/badge";
-import { UserEntity } from "@/services/user/types/entity";
 import { Column } from "@/types";
-import { ArrowUpDownIcon, EyeIcon } from "lucide-react";
+import { EyeIcon } from "lucide-react";
 import { EditProductDialog } from "./edit-dialog";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { DeleteProductDialog } from "./delete-dialog";
+import { ProductEntity } from "@/services/product/types/entity";
 
 export function AdminProductsTable(): JSX.Element {
-  const data: UserEntity[] = [
+  const data: ProductEntity[] = [
     {
       id: "1",
-      fullname: "Darren Christian",
-      email: "darren0208.dc@gmail.com",
-      phoneNumber: "082228883030",
-      status: "active",
+      name: "Microsoft Surface 7",
+      image: "",
+      createdAt: "12 Mei 2023",
+      price: 1000000,
     },
     {
       id: "2",
-      fullname: "Marco Christian",
-      email: "marco@gmail.com",
-      phoneNumber: "082228328330",
-      status: "inactive",
+      name: "Microsoft Surface 7",
+      image: "",
+      createdAt: "12 Mei 2023",
+      price: 1000000,
     },
     {
       id: "3",
-      fullname: "Jesse",
-      email: "jesse@gmail.com",
-      phoneNumber: "08218813137",
-      status: "active",
+      name: "Microsoft Surface 7",
+      image: "",
+      createdAt: "12 Mei 2023",
+      price: 1000000,
     },
   ];
-
-  const columns: Column<UserEntity>[] = [
+  const columns: Column<ProductEntity>[] = [
     {
       key: "id",
       formatterHeader: () => (
@@ -49,63 +46,36 @@ export function AdminProductsTable(): JSX.Element {
       ),
     },
     {
-      key: "fullname",
+      key: "product",
       formatterHeader: () => (
-        <BaseCell className="flex flex-row items-center gap-4 px-5">
-          <p className="text-[#3E3E3E] text-xs">Nama Lengkap</p>
-          <ArrowUpDownIcon size={12} className="text-[#BEBEBE]" />
+        <BaseCell className="text-[#3E3E3E] text-xs px-5">Produk</BaseCell>
+      ),
+      formatterCell: (row) => (
+        <BaseCell className="flex flex-row items-center gap-5 px-5">
+          <div className="w-10 h-10 bg-slate-300 rounded-md" />
+          <p>{row.name}</p>
+        </BaseCell>
+      ),
+    },
+    {
+      key: "createdAt",
+      formatterHeader: () => (
+        <BaseCell className="text-[#3E3E3E] text-xs px-5">
+          Tanggal Dibuat
         </BaseCell>
       ),
       formatterCell: (row) => (
-        <BaseCell className="px-5">{row.fullname}</BaseCell>
+        <BaseCell className="px-5">{row.createdAt}</BaseCell>
       ),
     },
     {
-      key: "email",
+      key: "price",
       formatterHeader: () => (
-        <BaseCell className="flex flex-row items-center gap-4 px-5">
-          <p className="text-[#3E3E3E] text-xs">Email</p>
-          <ArrowUpDownIcon size={12} className="text-[#BEBEBE]" />
-        </BaseCell>
-      ),
-      formatterCell: (row) => <BaseCell className="px-5">{row.email}</BaseCell>,
-    },
-    {
-      key: "phoneNumber",
-      formatterHeader: () => (
-        <BaseCell className="flex flex-row items-center gap-4 px-5">
-          <p className="text-[#3E3E3E] text-xs">No. Telepon</p>
-          <ArrowUpDownIcon size={12} className="text-[#BEBEBE]" />
-        </BaseCell>
+        <BaseCell className="text-[#3E3E3E] text-xs px-5">Harga (Rp)</BaseCell>
       ),
       formatterCell: (row) => (
-        <BaseCell className="px-5">{row.phoneNumber}</BaseCell>
+        <BaseCell className="px-5">Rp {row.price.toLocaleString()}</BaseCell>
       ),
-    },
-    {
-      key: "status",
-      formatterHeader: () => (
-        <BaseCell className="flex flex-row items-center gap-4 px-5">
-          <p className="text-[#3E3E3E] text-xs">Status</p>
-          <ArrowUpDownIcon size={12} className="text-[#BEBEBE]" />
-        </BaseCell>
-      ),
-      formatterCell: (row) => {
-        const isActive = row.status === "active";
-
-        return (
-          <BaseCell className="px-5">
-            <Badge
-              className={cn(
-                "text-white text-[9px] bg-[#D83A56] hover:bg-[#D83A56]/80",
-                isActive && "bg-[#479F77] hover:bg-[#479F77]/80"
-              )}
-            >
-              {row.status.toUpperCase()}
-            </Badge>
-          </BaseCell>
-        );
-      },
     },
     {
       key: "action",
@@ -126,7 +96,7 @@ export function AdminProductsTable(): JSX.Element {
   ];
 
   return (
-    <BaseTable<UserEntity>
+    <BaseTable<ProductEntity>
       data={data}
       columns={columns}
       classNames={{

@@ -7,22 +7,22 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { UserEntity } from "@/services/user/types/entity";
+import { ProductEntity } from "@/services/product/types/entity";
 import { useFormContext } from "react-hook-form";
 
-export function AdminUserFields(): JSX.Element {
-  const methods = useFormContext<Partial<UserEntity>>();
+export function AdminProductFields(): JSX.Element {
+  const methods = useFormContext<Partial<ProductEntity>>();
 
   return (
     <div className="flex flex-col gap-4">
       <FormField
         control={methods.control}
-        name="fullname"
+        name="image"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Nama</FormLabel>
+            <FormLabel>Gambar</FormLabel>
             <FormControl>
-              <Input placeholder="Masukkan Nama" {...field} />
+              <Input placeholder="Masukkan Gambar" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -31,16 +31,12 @@ export function AdminUserFields(): JSX.Element {
 
       <FormField
         control={methods.control}
-        name="phoneNumber"
+        name="name"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Nomor Telepon</FormLabel>
+            <FormLabel>Nama Produk</FormLabel>
             <FormControl>
-              <Input
-                type="tel"
-                placeholder="Masukkan Nomor Telepon"
-                {...field}
-              />
+              <Input placeholder="Masukkan Nama Produk" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -49,12 +45,12 @@ export function AdminUserFields(): JSX.Element {
 
       <FormField
         control={methods.control}
-        name="email"
+        name="price"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Email</FormLabel>
+            <FormLabel>Harga</FormLabel>
             <FormControl>
-              <Input placeholder="Masukkan Email" {...field} />
+              <Input type="number" placeholder="Masukkan Harga" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

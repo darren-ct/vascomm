@@ -1,14 +1,17 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback } from "react";
-import { AddUserSchema, addUserSchema } from "@/services/user/types/dto";
+import {
+  AddProductSchema,
+  addProductSchema,
+} from "@/services/product/types/dto";
 
 export function useAddProductDialog() {
-  const methods = useForm<AddUserSchema>({
-    resolver: zodResolver(addUserSchema),
+  const methods = useForm<AddProductSchema>({
+    resolver: zodResolver(addProductSchema),
   });
 
-  const onSubmit = useCallback((data: AddUserSchema) => {
+  const onSubmit = useCallback((data: AddProductSchema) => {
     console.log({ data });
   }, []);
 
