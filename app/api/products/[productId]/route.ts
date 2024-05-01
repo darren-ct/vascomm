@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import prisma from "@/lib/prisma";
-import { SearchParams } from "@/api/types";
+import { SearchParams } from "@/types";
 import { productSchema } from "@/services/product/types/entity";
 
 export async function GET(request: NextRequest) {
