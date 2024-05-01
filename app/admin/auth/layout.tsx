@@ -2,7 +2,7 @@ import { AuthContainer } from "@/features/auth/components/layout/container";
 import { AuthDisplay } from "@/features/auth/components/layout/display";
 import { AuthFormWrapper } from "@/features/auth/components/layout/form-wrapper";
 
-export default function AuthLayout({
+export default function AdminAuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
