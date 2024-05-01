@@ -18,7 +18,7 @@ export function AdminDashboardCard({
   return (
     <Card
       className={cn(
-        "relative flex-1 flex flex-col gap-1.5 px-7 py-8 rounded-2xl bg-gradient-to-l from-[#C2D6FF] to-[#ADC9FF]",
+        "relative flex-1 flex flex-col gap-1.5 px-7 py-8 rounded-2xl bg-gradient-to-l from-[#C2D6FF] to-[#ADC9FF] border-0",
         className
       )}
       {...rest}

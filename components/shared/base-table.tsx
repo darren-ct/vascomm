@@ -35,7 +35,7 @@ export function BaseTable<T extends Record<string, unknown>>({
   const columns = rawColumns.map((rawCol) => ({
     accessorKey: rawCol.key,
     header: () => rawCol.formatterHeader(),
-    cell: ({ row }) => rawCol.formatterCell(row.original),
+    cell: ({ row }) => rawCol.formatterCell(row.original, row.index),
   })) as ColumnDef<T>[];
 
   const table = useReactTable<T>({
